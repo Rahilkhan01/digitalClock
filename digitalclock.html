@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content=
+	"width=device-width, initial-scale=1.0">
+	<title>Digital Clock</title>
+	<link rel="stylesheet" href="clock2.css">
+    <style>
+    *  {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        #containertime{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    #clock 
+   {   
+        font-size: 155px;
+        width: 900px;  
+        margin: 200px;
+        text-align: center;
+        border: 2px solid greenyellow; 
+        border-radius: 20px;
+        background: rgb(63,94,251);
+        background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+        position: relative;
+        bottom: 210px;
+        
+        
+    }
+
+    </style>
+    <script>
+        setInterval(showClock, 1000);
+function showClock() {
+	let time = new Date();
+	let hour = time.getHours();
+	let min = time.getMinutes();
+	let sec = time.getSeconds();
+	am_pm = "AM";
+
+	if (hour > 12) {
+		hour -= 12;
+		am_pm = "PM";
+	}
+	if (hour == 0) {
+		hr = 12;
+		am_pm = "AM";
+	}
+
+	hour = hour < 10 ? "0" + hour : hour;
+	min = min < 10 ? "0" + min : min;
+	sec = sec < 10 ? "0" + sec : sec;
+
+	let currentTime = hour + ":"
+			+ min + ":" + sec + am_pm;
+
+	document.getElementById("clock")
+			.innerHTML = currentTime;
+}
+showClock();
+
+    </script>
+</head>
+<body>
+<h1>Better three hours too soon than a minute too late.</h1><p> – William Shakespeare</p>
+   <marquee direction="right" loop=" "><img src="horse.webp" height="300px" width="490px"></marquee>
+	<div class="containertime"><p id="clock"></p></div>
+    
+
+	<script src="clock2.js"></script>
+</body>
+</html>
